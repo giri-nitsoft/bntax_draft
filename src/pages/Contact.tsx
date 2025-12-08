@@ -4,7 +4,10 @@ import { Send } from 'lucide-react';
 export default function Contact() {
     const [formData, setFormData] = useState({
         name: '',
-        phone: '',
+        email: '',
+        phone1: '',
+        phone2: '',
+        phone3: '',
         customerType: '개인사업자',
         message: '',
         agreePrivacy: false
@@ -14,8 +17,8 @@ export default function Contact() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!formData.name || !formData.phone) {
-            alert('이름과 연락처는 필수 입력 항목입니다.');
+        if (!formData.name || !formData.email || !formData.phone1 || !formData.phone2 || !formData.phone3) {
+            alert('이름, 이메일, 연락처는 필수 입력 항목입니다.');
             return;
         }
 
@@ -47,10 +50,10 @@ export default function Contact() {
                         영업일 기준 당일~다음 날 연락드리겠습니다
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-8">
                         {/* 이름 */}
                         <div>
-                            <label htmlFor="name" className="block text-sm font-semibold text-black mb-2">
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                                 이름 <span className="text-red-500">*</span>
                             </label>
                             <input
@@ -59,35 +62,74 @@ export default function Contact() {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                                placeholder="이름을 입력해주세요"
+                                className="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-black transition-colors"
+                                required
+                            />
+                        </div>
+
+                        {/* 이메일 */}
+                        <div>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                                이메일 <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-black transition-colors"
                                 required
                             />
                         </div>
 
                         {/* 연락처 */}
                         <div>
-                            <label htmlFor="phone" className="block text-sm font-semibold text-black mb-2">
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
                                 연락처 <span className="text-red-500">*</span>
                             </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                                placeholder="010-0000-0000"
-                                required
-                            />
+                            <div className="flex items-center gap-2">
+                                <input
+                                    type="tel"
+                                    name="phone1"
+                                    value={formData.phone1}
+                                    onChange={handleChange}
+                                    maxLength={3}
+                                    className="w-20 px-4 py-2 border border-gray-300 focus:outline-none focus:border-black transition-colors text-center"
+                                    placeholder="010"
+                                    required
+                                />
+                                <span className="text-gray-500">-</span>
+                                <input
+                                    type="tel"
+                                    name="phone2"
+                                    value={formData.phone2}
+                                    onChange={handleChange}
+                                    maxLength={4}
+                                    className="w-24 px-4 py-2 border border-gray-300 focus:outline-none focus:border-black transition-colors text-center"
+                                    placeholder="0000"
+                                    required
+                                />
+                                <span className="text-gray-500">-</span>
+                                <input
+                                    type="tel"
+                                    name="phone3"
+                                    value={formData.phone3}
+                                    onChange={handleChange}
+                                    maxLength={4}
+                                    className="w-24 px-4 py-2 border border-gray-300 focus:outline-none focus:border-black transition-colors text-center"
+                                    placeholder="0000"
+                                    required
+                                />
+                            </div>
                         </div>
 
                         {/* 고객유형 */}
                         <div>
-                            <label className="block text-sm font-semibold text-black mb-3">
+                            <label className="block text-sm font-medium text-gray-700 mb-3">
                                 고객유형
                             </label>
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex items-center gap-6">
                                 {['개인사업자', '법인사업자', '비사업자'].map((type) => (
                                     <label key={type} className="flex items-center cursor-pointer">
                                         <input
@@ -96,7 +138,7 @@ export default function Contact() {
                                             value={type}
                                             checked={formData.customerType === type}
                                             onChange={handleChange}
-                                            className="w-4 h-4 text-black focus:ring-black"
+                                            className="w-4 h-4 text-black focus:ring-black border-gray-300"
                                         />
                                         <span className="ml-2 text-gray-700">{type}</span>
                                     </label>
@@ -104,38 +146,38 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        {/* 상담 내용 */}
+                        {/* 상담받고 싶은 내용 */}
                         <div>
-                            <label htmlFor="message" className="block text-sm font-semibold text-black mb-2">
-                                상담 내용
+                            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                                상담받고 싶은 내용
                             </label>
                             <textarea
                                 id="message"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                rows={6}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none"
-                                placeholder="상담받고 싶은 내용을 자유롭게 작성해주세요"
+                                rows={4}
+                                className="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-black transition-colors resize-none"
+                                placeholder=""
                             />
                         </div>
 
                         {/* 개인정보 동의 */}
-                        <div className="bg-gray-50 p-6 rounded-lg">
+                        <div className="pt-4">
                             <label className="flex items-start cursor-pointer">
                                 <input
                                     type="checkbox"
                                     name="agreePrivacy"
                                     checked={formData.agreePrivacy}
                                     onChange={handleChange}
-                                    className="w-5 h-5 text-black focus:ring-black mt-0.5 flex-shrink-0"
+                                    className="w-4 h-4 text-black focus:ring-black mt-1 flex-shrink-0 border-gray-300"
                                     required
                                 />
-                                <span className="ml-3 text-sm text-gray-700 leading-relaxed">
+                                <span className="ml-3 text-sm text-gray-600 leading-relaxed">
                                     개인정보 수집 및 이용에 동의합니다. <span className="text-red-500">*</span>
                                     <br />
-                                    <span className="text-xs text-gray-500">
-                                        수집항목: 이름, 연락처, 고객유형, 상담내용 | 이용목적: 상담 응대 | 보유기간: 상담 완료 후 1년
+                                    <span className="text-xs text-gray-400 mt-1 block">
+                                        수집항목: 이름, 이메일, 연락처, 고객유형, 상담내용 | 이용목적: 상담 응대 | 보유기간: 상담 완료 후 1년
                                     </span>
                                 </span>
                             </label>
@@ -144,10 +186,10 @@ export default function Contact() {
                         {/* 제출 버튼 */}
                         <button
                             type="submit"
-                            className="w-full bg-black text-white py-4 rounded-md font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+                            className="w-full bg-black text-white py-4 font-semibold text-base hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 mt-8"
                         >
                             <Send className="w-5 h-5" />
-                            상담 신청
+                            상담 신청하기
                         </button>
                     </form>
                 </div>
@@ -173,7 +215,10 @@ export default function Contact() {
                                     setShowModal(false);
                                     setFormData({
                                         name: '',
-                                        phone: '',
+                                        email: '',
+                                        phone1: '',
+                                        phone2: '',
+                                        phone3: '',
                                         customerType: '개인사업자',
                                         message: '',
                                         agreePrivacy: false

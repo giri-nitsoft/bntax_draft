@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText, Lightbulb, Scale } from 'lucide-react';
+import { BookOpen, FileText, Lightbulb, Scale, Users, MessageCircle, Sparkles } from 'lucide-react';
 
 export default function Services() {
     return (
@@ -11,7 +11,10 @@ export default function Services() {
                         서비스 소개
                     </h1>
                     <div className="grid md:grid-cols-3 gap-12 mb-20">
-                        <div className="text-center">
+                        <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                            <div className="inline-flex items-center justify-center w-16 h-16 bg-black rounded-full mb-6">
+                                <Users className="w-8 h-8 text-white" />
+                            </div>
                             <h3 className="text-2xl font-bold text-black mb-4">
                                 현장을 가장 잘 아는<br />세무파트너
                             </h3>
@@ -21,7 +24,10 @@ export default function Services() {
                                 최적의 솔루션을 제공합니다
                             </p>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                            <div className="inline-flex items-center justify-center w-16 h-16 bg-black rounded-full mb-6">
+                                <MessageCircle className="w-8 h-8 text-white" />
+                            </div>
                             <h3 className="text-2xl font-bold text-black mb-4">
                                 무엇이든<br />물어보세요
                             </h3>
@@ -31,7 +37,10 @@ export default function Services() {
                                 친절하게 답변드립니다
                             </p>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow">
+                            <div className="inline-flex items-center justify-center w-16 h-16 bg-black rounded-full mb-6">
+                                <Sparkles className="w-8 h-8 text-white" />
+                            </div>
                             <h3 className="text-2xl font-bold text-black mb-4">
                                 먼저<br />제안해드려요
                             </h3>

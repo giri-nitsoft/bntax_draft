@@ -110,6 +110,12 @@ export default function Careers() {
                             일과 삶의 균형을 중요하게 생각하는 문화 속에서<br />
                             전문성을 키우고 함께 발전할 수 있습니다
                         </p>
+                        <a
+                            href="mailto:recruit@bntax.com"
+                            className="inline-block bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                        >
+                            B&TAX 지원하기
+                        </a>
                     </div>
                 </div>
             </section>
