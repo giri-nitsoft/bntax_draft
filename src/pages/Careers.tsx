@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Clock, Gift, Heart, Book, Award, Plane, Cake, Dog } from 'lucide-react';
+import { Check, Clock, Gift, Heart, Book, Award, Plane, Cake, Dog, Bone } from 'lucide-react';
 
 export default function Careers() {
     const benefits = [
@@ -57,6 +57,11 @@ export default function Careers() {
             icon: Check,
             title: '회식 강요 없음',
             description: '자율적인 문화'
+        },
+        {
+            icon: Bone,
+            title: '반려동물 식대지원',
+            description: '사랑하는 반려동물도 같이 챙겨드려요!'
         }
     ];
 
@@ -67,11 +72,10 @@ export default function Careers() {
                     {/* Header */}
                     <div className="text-center mb-20">
                         <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">
-                            CULTURE & LIFE
+                            인재채용
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            회계는 비용이 아니라,<br />
-                            함께 성장하는 투자입니다.
+                            회계는 비용이 아니라, 함께 성장하는 투자입니다.
                         </p>
                     </div>
 

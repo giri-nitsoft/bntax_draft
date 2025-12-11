@@ -28,14 +28,12 @@ export default function Header() {
 
                     {/* Logo */}
                     <Link to="/" className="text-2xl font-bold tracking-tight text-black">
-                        B&TAX
+                        가현 세무법인 성수점
                     </Link>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex space-x-10">
-                        <Link to="/services" className="text-gray-600 hover:text-black font-medium transition-colors">
-                            서비스
-                        </Link>
+
                         <Link to="/location" className="text-gray-600 hover:text-black font-medium transition-colors">
                             찾아오시는길
                         </Link>
@@ -86,13 +84,7 @@ export default function Header() {
                     >
                         홈
                     </Link>
-                    <Link
-                        to="/services"
-                        className="text-gray-600 hover:text-black font-medium transition-colors py-2"
-                        onClick={closeMenu}
-                    >
-                        서비스
-                    </Link>
+
                     <Link
                         to="/location"
                         className="text-gray-600 hover:text-black font-medium transition-colors py-2"

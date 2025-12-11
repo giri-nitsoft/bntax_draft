@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Car, Train, Bus } from 'lucide-react';
+import { MapPin, Car } from 'lucide-react';
 
 export default function Location() {
     return (
@@ -10,14 +10,43 @@ export default function Location() {
                         찾아오시는 길
                     </h1>
 
-                    {/* Address */}
-                    <div className="bg-gray-50 rounded-lg p-10 mb-12 text-center">
-                        <MapPin className="w-12 h-12 mx-auto text-black mb-4" />
-                        <h2 className="text-2xl font-bold text-black mb-4">주소</h2>
-                        <p className="text-xl text-gray-700">
-                            서울 성동구 광나루로 176<br />
-                            밤부성수 8층
-                        </p>
+                    {/* Split Layout: Image/Address + Map */}
+                    <div className="flex flex-col md:flex-row h-[500px] rounded-lg overflow-hidden shadow-sm mb-12">
+                        {/* Left: Building Image & Address */}
+                        <div className="md:w-1/3 relative group">
+                            <img
+                                src="/images/bambu_building.png"
+                                alt="밤부성수 건물 전경"
+                                className="w-full h-full object-cover"
+                            />
+
+                            <div className="absolute bottom-0 left-0 w-full bg-black p-6 text-left">
+                                <div className="flex items-start gap-3">
+                                    <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+                                    <div>
+                                        <p className="font-bold text-lg text-white leading-snug">
+                                            서울 성동구 광나루로 176,<br />
+                                            밤부성수 8층
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right: Map */}
+                        <div className="md:w-2/3 bg-gray-100 relative">
+                            <iframe
+                                title="가현 세무법인 성수점 위치"
+                                src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EC%84%B1%EB%8F%99%EA%B5%AC%20%EA%B4%91%EB%82%98%EB%A3%A8%EB%A1%9C%20176&t=m&z=17&output=embed&iwloc=near"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="absolute inset-0"
+                            />
+                        </div>
                     </div>
 
                     {/* Transport Info */}
@@ -34,41 +63,6 @@ export default function Location() {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="border border-gray-200 rounded-lg p-8">
-                            <div className="flex items-start gap-4">
-                                <Train className="w-8 h-8 text-black flex-shrink-0 mt-1" />
-                                <div>
-                                    <h3 className="text-xl font-bold text-black mb-3">지하철</h3>
-                                    <ul className="text-gray-600 space-y-2 leading-relaxed">
-                                        <li>• 2호선 뚝섬역 도보 12분</li>
-                                        <li>• 수인분당선 서울숲역 도보 20분</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="border border-gray-200 rounded-lg p-8">
-                            <div className="flex items-start gap-4">
-                                <Bus className="w-8 h-8 text-black flex-shrink-0 mt-1" />
-                                <div>
-                                    <h3 className="text-xl font-bold text-black mb-3">버스</h3>
-                                    <ul className="text-gray-600 space-y-2 leading-relaxed">
-                                        <li>• 간선: 302</li>
-                                        <li>• 지선: 2012, 2222</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Contact Info */}
-                    <div className="mt-12 text-center bg-black text-white rounded-lg p-8">
-                        <h3 className="text-xl font-bold mb-4">문의</h3>
-                        <p className="text-lg">
-                            Tel: 02-595-3680<br />
-                            Fax: 02-6499-3799
-                        </p>
                     </div>
                 </div>
             </section>
