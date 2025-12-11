@@ -4,20 +4,19 @@ import { Link } from 'react-router-dom';
 export default function Home() {
     return (
         <div className="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden">
-            {/* Video Background */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            >
-                <source src="/videos/main-bg.mp4" type="video/mp4" />
-            </video>
-
-            {/* Black Overlay */}
-            <div className="absolute inset-0 bg-black/50" />
-
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                >
+                    <source src="/videos/bntax.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-black/50" />
+            </div>
             {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
                 <div className="max-w-3xl">
